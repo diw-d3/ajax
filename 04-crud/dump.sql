@@ -1,0 +1,40 @@
+-- -------------------------------------------------------------
+-- TablePlus 2.12(282)
+--
+-- https://tableplus.com/
+--
+-- Database: api_cars
+-- Generation Time: 2020-01-06 19:46:24.6960
+-- -------------------------------------------------------------
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+CREATE TABLE `cars` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `brand` varchar(255) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `cars` (`id`, `brand`, `model`, `price`) VALUES ('1', 'Renault', 'Mégane', '2000');
+INSERT INTO `cars` (`id`, `brand`, `model`, `price`) VALUES ('2', 'BMW', 'X1', '30000');
+INSERT INTO `cars` (`id`, `brand`, `model`, `price`) VALUES ('3', 'Porsche', 'Cayenne', '80000');
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
