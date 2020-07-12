@@ -1,0 +1,10 @@
+# On vérifie que le module rewrite d'Apache est activé
+<IfModule mod_rewrite.c>
+    # Activer la redirection des URLs
+    RewriteEngine On
+    # On applique la redirection URL uniquement si le dossier ou le fichier n'existe pas (par exemple css/style.css)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # La règle d'écriture qui redirige /pizzas vers /index.php/pizzas
+    RewriteRule ^ index.php [L]
+</IfModule>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formulaire en AJAX</title>
+    <style>
+        #loading {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form-message" action="./worker.php" method="post">
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="message">Message</label>
+            <input type="text" name="message" id="message">
+        </div>
+
+        <button>Envoyer</button>
+        <img id="loading" width="20" src="spinner.gif">
+    </form>
+
+    <ul id="messages"></ul>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $('#form-message').on('submit', function (event) {
+            event.preventDefault(); // Annule la soumission
+            // alert('Soumission du formulaire');
+            // On traite le formulaire directement en AJAX
+            $.ajax({
+                url: './worker.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                beforeSend: function () {
+                    $('#loading').fadeIn();
+                    $('button').attr('disabled', true);
+                },
+                complete: function () {
+                    $('#loading').fadeOut();
+                    $('button').attr('disabled', false);
+                }
+            }).done(function (response) {
+                var li = $('<li></li>');
+                li.html(response.name + ' : ' + response.message);
+                $('#messages').append(li);
+            });
+
+            /*
+             On veut afficher le spinner uniquement quand la requête AJAX est lancée.
+             1/ Il faudra masquer l'image par défaut.
+             2/ Avec le beforeSend qui s'exécute lors du clic
+             sur le bouton, on affichera l'image et on pourra désactiver le bouton.
+             3/ Quand la requête AJAX est terminée (avec le complete), on doit masquer à nouveau
+             le spinner et réactiver le bouton.
+            */
+        });
+    </script>
+</body>
+</html>

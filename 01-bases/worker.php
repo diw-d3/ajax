@@ -1,9 +1,10 @@
 <?php
 
+// On arrête le script 3 secondes
 // sleep(3);
 
 $sentences = [
-    'Hello world',
+    'Hello world!',
     'Great server',
     'Amazing ajax request',
     'A random sentence',
